@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ritish Kumar Yadav | Data Analyst & Agentic AI Engineer</title>
+  <meta name="description" content="Portfolio of Ritish Kumar Yadav. Data Analyst & Agentic AI Engineer specialized in RAG LLM architectures, Power BI dashboards, SQL, Python, and predictive analytics.">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            accent: {
+              DEFAULT: '#0070F3',
+              50: '#EFF6FF',
+              100: '#DBEAFE',
+              400: '#60A5FA',
+              500: '#3B82F6',
+              600: '#0070F3',
+              700: '#1D4ED8',
+            },
+            obsidian: {
+              bg: '#090A0F',
+              card: '#111218',
+              border: '#1F222E',
+              hover: '#181A24',
+              subtle: '#2A2E3D',
+            },
+            cream: {
+              bg: '#F8F9FA',
+              card: '#FFFFFF',
+              border: '#E9ECEF',
+              hover: '#F1F3F5',
+              subtle: '#DEE2E6',
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom modern scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(150, 150, 150, 0.25);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(150, 150, 150, 0.45);
+    }
+  </style>
+</head>
+<body class="bg-obsidian-bg text-zinc-100 antialiased selection:bg-accent selection:text-white transition-colors duration-300 relative overflow-x-hidden">
+
+  <!-- 3D Starfield Galaxy Canvas (No planets, small stars moving in 3D depth) -->
+  <canvas id="starfield-canvas" class="fixed inset-0 pointer-events-none z-0 transition-opacity duration-700" style="opacity: 0.95;"></canvas>
+
+  <!-- Ambient Glow Backgrounds -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div id="ambient-top" class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full blur-[140px] opacity-20 bg-accent/40"></div>
+    <div id="ambient-right" class="absolute top-[40%] -right-40 w-[500px] h-[500px] rounded-full blur-[160px] opacity-15 bg-indigo-600/30"></div>
+  </div>
+
+  <!-- Sticky Apple-Style Navbar -->
+  <header class="sticky top-4 z-40 mx-auto max-w-6xl px-4 sm:px-6">
+    <nav id="navbar-container" class="flex items-center justify-between rounded-full px-5 py-3 transition-all duration-300 shadow-lg bg-obsidian-card/80 border border-obsidian-border/80 backdrop-blur-xl text-zinc-200 shadow-black/40">
+      <!-- Monogram Brand -->
+      <a href="#hero" class="flex items-center gap-2.5 group">
+        <div class="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white font-bold text-sm tracking-wider shadow-md group-hover:scale-105 transition-transform">
+          RY
+        </div>
+        <div class="flex flex-col">
+          <span class="font-semibold text-sm tracking-tight leading-none group-hover:text-accent transition-colors">
+            Ritish Kumar Yadav
+          </span>
+          <span class="text-[11px] text-zinc-400 font-mono">
+            Data & Agentic AI
+          </span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#projects" class="hover:text-accent transition-colors text-zinc-400 hover:text-white">Projects</a>
+        <a href="#metrics" class="hover:text-accent transition-colors text-zinc-400 hover:text-white">Impact</a>
+        <a href="#skills" class="hover:text-accent transition-colors text-zinc-400 hover:text-white">Skills</a>
+        <a href="#certifications" class="hover:text-accent transition-colors text-zinc-400 hover:text-white">Certificates</a>
+        <a href="#experience" class="hover:text-accent transition-colors text-zinc-400 hover:text-white">Experience</a>
+      </div>
+
+      <!-- Right Actions -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Social Icons (GitHub & LinkedIn) in Navbar -->
+        <div class="flex items-center gap-1">
+          <a href="https://github.com/ritish97" target="_blank" rel="noreferrer" title="GitHub Profile" aria-label="GitHub Profile" class="p-2 rounded-full transition-all hover:scale-110 active:scale-95 bg-zinc-800/80 hover:bg-zinc-700 text-zinc-300 hover:text-white">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/ritish-yadav24" target="_blank" rel="noreferrer" title="LinkedIn Profile" aria-label="LinkedIn Profile" class="p-2 rounded-full transition-all hover:scale-110 active:scale-95 bg-zinc-800/80 hover:bg-zinc-700 text-[#0A66C2]">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74V9.87H5.06v8.63h2.8z"/></svg>
+          </a>
+        </div>
+
+        <!-- Resume Trigger -->
+        <button onclick="toggleResumeModal(true)" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-accent/10 hover:bg-accent/20 text-accent border border-accent/20 transition-all hover:scale-105 active:scale-95">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Theme" class="p-2 rounded-full transition-all hover:scale-110 active:scale-90 bg-zinc-800 text-yellow-400">
+          <i id="theme-icon" data-lucide="sun" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Canvas -->
+  <main class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 py-8 space-y-10 sm:space-y-12">
+
+    <!-- 1. HERO BENTO CARD -->
+    <section id="hero" class="w-full">
+      <div class="card-box relative overflow-hidden rounded-3xl p-6 sm:p-8 lg:p-10 transition-all duration-300 shadow-xl border bg-obsidian-card border-obsidian-border text-zinc-100 shadow-black/40">
+        <!-- Background Radial Accent -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-accent/15 blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-10">
+          <!-- Headshot -->
+          <div class="relative flex-shrink-0 group">
+            <div class="relative w-40 h-40 sm:w-48 sm:h-48 rounded-3xl overflow-hidden ring-2 ring-accent/30 shadow-2xl transition-all duration-300 group-hover:ring-accent group-hover:scale-[1.02]">
+              <img src="public/avatar.jpg" alt="Ritish Kumar Yadav" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <!-- Online status badge -->
+            <div class="absolute -bottom-2 -right-2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900/90 text-emerald-400 border border-emerald-500/30 text-[11px] font-semibold backdrop-blur-md shadow-lg">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block"></span>
+              <span>Active</span>
+            </div>
+          </div>
+
+          <!-- Info & Pitch -->
+          <div class="flex-1 text-center lg:text-left space-y-4">
+            <!-- Status Pill -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Available for Full-Time & Internship Roles</span>
+            </div>
+
+            <!-- Title & Name -->
+            <div>
+              <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+                Ritish Kumar Yadav
+              </h1>
+              <p class="text-lg sm:text-xl font-medium text-accent mt-1 tracking-tight flex items-center justify-center lg:justify-start gap-2">
+                <span>Data Analyst & Agentic AI Engineer</span>
+                <i data-lucide="sparkles" class="w-4 h-4 text-accent/80"></i>
+              </p>
+            </div>
+
+            <!-- Pitch -->
+            <p class="bio-text text-sm sm:text-base text-zinc-300 leading-relaxed max-w-2xl">
+              Skilled in SQL, Python, Power BI, and modern LLM frameworks. I engineer end-to-end analytical pipelines, RAG-based AI applications, and dynamic executive BI dashboards that transform complex datasets into high-conviction business decisions.
+            </p>
+
+            <!-- Meta Badges -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1 text-xs">
+              <div class="meta-pill flex items-center gap-2.5 px-3.5 py-2 rounded-2xl border bg-zinc-900/60 border-zinc-800 text-zinc-300">
+                <i data-lucide="graduation-cap" class="w-4 h-4 text-accent flex-shrink-0"></i>
+                <div class="flex flex-col text-left leading-tight">
+                  <span class="font-semibold text-xs text-zinc-100">BTech Cyber Security and Digital Forensics</span>
+                  <span class="text-[11px] text-zinc-400">Vellore Institute of Technology</span>
+                </div>
+              </div>
+              <div class="meta-pill flex items-center gap-1.5 px-3 py-1.5 rounded-full border bg-zinc-900/60 border-zinc-800 text-zinc-300">
+                <i data-lucide="briefcase" class="w-3.5 h-3.5 text-accent"></i>
+                <span>Ex-Business Analyst @ Finlatics</span>
+              </div>
+              <div class="meta-pill flex items-center gap-1.5 px-3 py-1.5 rounded-full border bg-zinc-900/60 border-zinc-800 text-zinc-300">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-accent"></i>
+                <span>Kanpur, Uttar Pradesh, India</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-3">
+              <button onclick="copyEmailToClipboard()" class="flex items-center gap-2 px-4 py-2 rounded-2xl bg-accent text-white font-semibold text-xs sm:text-sm hover:bg-accent/90 transition-all hover:scale-105 active:scale-95 shadow-md shadow-accent/25">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                <span>Copy Email</span>
+                <i data-lucide="copy" class="w-3.5 h-3.5 opacity-80"></i>
+              </button>
+
+              <button onclick="toggleResumeModal(true)" class="btn-secondary flex items-center gap-2 px-4 py-2 rounded-2xl font-semibold text-xs sm:text-sm transition-all hover:scale-105 active:scale-95 border bg-zinc-900/80 hover:bg-zinc-800 text-zinc-200 border-zinc-700">
+                <i data-lucide="file-text" class="w-4 h-4 text-accent"></i>
+                <span>View Resume</span>
+              </button>
+
+              <a href="https://linkedin.com/in/ritish-yadav24" target="_blank" rel="noreferrer" class="btn-secondary flex items-center gap-2 px-4 py-2 rounded-2xl transition-all hover:scale-105 border bg-zinc-900/80 hover:bg-zinc-800 text-zinc-200 border-zinc-800 hover:text-white shadow-sm">
+                <svg class="w-4 h-4 fill-[#0A66C2]" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74V9.87H5.06v8.63h2.8z"/></svg>
+                <span class="text-xs font-semibold">LinkedIn</span>
+              </a>
+
+              <a href="https://github.com/ritish97" target="_blank" rel="noreferrer" class="btn-secondary flex items-center gap-2 px-4 py-2 rounded-2xl transition-all hover:scale-105 border bg-zinc-900/80 hover:bg-zinc-800 text-zinc-200 border-zinc-800 hover:text-white shadow-sm">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <span class="text-xs font-semibold">GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. QUANTIFIABLE IMPACT BENTO -->
+    <section id="metrics" class="w-full space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight">
+          Quantifiable Business Impact
+        </h2>
+        <span class="text-xs font-mono text-zinc-400">Proven Metrics</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Metric 1 -->
+        <div class="card-box group relative overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg border bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/50">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+              <i data-lucide="trending-down" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xs font-mono text-zinc-400">01</span>
+          </div>
+          <div class="space-y-1">
+            <div class="text-3xl sm:text-4xl font-extrabold tracking-tight group-hover:text-accent transition-colors">18%</div>
+            <div class="font-semibold text-sm leading-snug">Holding Cost Reduction</div>
+            <p class="text-xs text-zinc-400 leading-relaxed pt-1">
+              Optimized inventory schedules with algorithmic EOQ & dynamic safety stock models.
+            </p>
+          </div>
+        </div>
+
+        <!-- Metric 2 -->
+        <div class="card-box group relative overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg border bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/50">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/10 text-accent border border-accent/20">
+              <i data-lucide="users" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xs font-mono text-zinc-400">02</span>
+          </div>
+          <div class="space-y-1">
+            <div class="text-3xl sm:text-4xl font-extrabold tracking-tight group-hover:text-accent transition-colors">1,470+</div>
+            <div class="font-semibold text-sm leading-snug">Employee Records Modeled</div>
+            <p class="text-xs text-zinc-400 leading-relaxed pt-1">
+              Statistical correlations uncovering 39.8% turnover in sales roles to guide retention.
+            </p>
+          </div>
+        </div>
+
+        <!-- Metric 3 -->
+        <div class="card-box group relative overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg border bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/50">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-indigo-500/10 text-indigo-500 border border-indigo-500/20">
+              <i data-lucide="repeat" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xs font-mono text-zinc-400">03</span>
+          </div>
+          <div class="space-y-1">
+            <div class="text-3xl sm:text-4xl font-extrabold tracking-tight group-hover:text-accent transition-colors">14%</div>
+            <div class="font-semibold text-sm leading-snug">Repeat Purchase Boost</div>
+            <p class="text-xs text-zinc-400 leading-relaxed pt-1">
+              Automated multi-month cohort retention pipelines & RFM customer segmentation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Metric 4 -->
+        <div class="card-box group relative overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg border bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/50">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-500 border border-amber-500/20">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xs font-mono text-zinc-400">04</span>
+          </div>
+          <div class="space-y-1">
+            <div class="text-3xl sm:text-4xl font-extrabold tracking-tight group-hover:text-accent transition-colors">8.26</div>
+            <div class="font-semibold text-sm leading-snug">VIT Academic CGPA</div>
+            <p class="text-xs text-zinc-400 leading-relaxed pt-1">
+              B.Tech in Cyber Security, Applied Statistics, Machine Learning & Digital Forensics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FEATURED PROJECTS -->
+    <section id="projects" class="w-full space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight">
+            Featured Projects & Live Deployments
+          </h2>
+          <p class="text-xs sm:text-sm text-zinc-400">
+            All 4 systems feature publicly accessible Streamlit live demos and open-source code
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex items-center gap-1 p-1 rounded-full border text-xs font-medium self-start sm:self-auto bg-zinc-900 border-zinc-800">
+          <button onclick="filterProjects('all')" id="tab-all" class="project-tab px-3 py-1.5 rounded-full transition-all bg-accent text-white font-semibold">All</button>
+          <button onclick="filterProjects('ai')" id="tab-ai" class="project-tab px-3 py-1.5 rounded-full transition-all text-zinc-400 hover:text-white">Agentic AI & LLMs</button>
+          <button onclick="filterProjects('analytics')" id="tab-analytics" class="project-tab px-3 py-1.5 rounded-full transition-all text-zinc-400 hover:text-white">Data & BI</button>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <!-- Project 1: RAG Q&A -->
+        <div class="project-card card-box group relative flex flex-col justify-between overflow-hidden rounded-3xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 shadow-xl border bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/50 shadow-black/40" data-cat="ai">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/10 text-accent border border-accent/20">
+                  <i data-lucide="bot" class="w-5 h-5"></i>
+                </div>
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-accent">Agentic AI & LLMs</span>
+              </div>
+              <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Live App Deployed</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold tracking-tight group-hover:text-accent transition-colors leading-snug">
+                Prashna Vali: RAG Document Q&A System
+              </h3>
+              <p class="text-xs font-medium text-zinc-400 mt-1">
+                LLM-Powered Retrieval-Augmented Generation with Vector Search
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1">
+              Built an end-to-end RAG pipeline enabling LLM-powered question answering over custom document sets. Implemented semantic search using ChromaDB and Hugging Face sentence-transformer embeddings via a FastAPI backend.
+            </p>
+
+            <div class="p-3 rounded-2xl border text-xs font-medium flex items-center gap-2 bg-zinc-900/60 border-zinc-800 text-emerald-400">
+              <i data-lucide="sparkles" class="w-4 h-4 flex-shrink-0"></i>
+              <span>Key Result: Benchmarked sub-second retrieval accuracy & latency</span>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-zinc-800/80 space-y-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">FastAPI</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">LangChain</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">ChromaDB</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Hugging Face</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Streamlit</span>
+            </div>
+
+            <div class="flex items-center gap-3 pt-1">
+              <a href="https://prashnavali-mip6sgansa4d5exnoxhxza.streamlit.app/" target="_blank" rel="noreferrer" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-accent text-white font-semibold text-xs sm:text-sm hover:bg-accent/90 transition-all hover:scale-[1.02] active:scale-95 shadow-md shadow-accent/25">
+                <span>Launch Live App</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="https://github.com/ritish97/prashna_vali" target="_blank" rel="noreferrer" class="btn-secondary flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl font-semibold text-xs sm:text-sm transition-all hover:scale-[1.02] active:scale-95 border bg-zinc-900/90 hover:bg-zinc-800 text-zinc-200 border-zinc-700">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <span>View Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Supply Chain -->
+        <div class="project-card card-box group relative flex flex-col justify-between overflow-hidden rounded-3xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 shadow-xl border bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/50 shadow-black/40" data-cat="analytics">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/10 text-accent border border-accent/20">
+                  <i data-lucide="layers" class="w-5 h-5"></i>
+                </div>
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-accent">Data & BI Analytics</span>
+              </div>
+              <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Live App Deployed</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold tracking-tight group-hover:text-accent transition-colors leading-snug">
+                Supply Chain & Inventory Optimization
+              </h3>
+              <p class="text-xs font-medium text-zinc-400 mt-1">
+                Algorithmic EOQ & Dynamic Safety Stock Modeling
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1">
+              Formulated Economic Order Quantity (EOQ) and safety stock algorithms in Python and SQL. Engineered SQL schemas to aggregate multi-table transactional records for automated inventory analytics.
+            </p>
+
+            <div class="p-3 rounded-2xl border text-xs font-medium flex items-center gap-2 bg-zinc-900/60 border-zinc-800 text-emerald-400">
+              <i data-lucide="sparkles" class="w-4 h-4 flex-shrink-0"></i>
+              <span>Key Result: Reduced holding costs by 18% & stockout risk by 22%</span>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-zinc-800/80 space-y-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Python</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">SQL</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Power BI</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Excel Modeling</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Streamlit</span>
+            </div>
+
+            <div class="flex items-center gap-3 pt-1">
+              <a href="https://supply-chain-inventory-optimization-ehjdrvhf8es39hj6b3z4fm.streamlit.app/" target="_blank" rel="noreferrer" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-accent text-white font-semibold text-xs sm:text-sm hover:bg-accent/90 transition-all hover:scale-[1.02] active:scale-95 shadow-md shadow-accent/25">
+                <span>Launch Live App</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="https://github.com/ritish97/Supply-Chain-Inventory-Optimization" target="_blank" rel="noreferrer" class="btn-secondary flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl font-semibold text-xs sm:text-sm transition-all hover:scale-[1.02] active:scale-95 border bg-zinc-900/90 hover:bg-zinc-800 text-zinc-200 border-zinc-700">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <span>View Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: HR Attrition -->
+        <div class="project-card card-box group relative flex flex-col justify-between overflow-hidden rounded-3xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 shadow-xl border bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/50 shadow-black/40" data-cat="analytics">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/10 text-accent border border-accent/20">
+                  <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                </div>
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-accent">Data & BI Analytics</span>
+              </div>
+              <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Live App Deployed</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold tracking-tight group-hover:text-accent transition-colors leading-snug">
+                Enterprise HR Workforce Attrition Analytics
+              </h3>
+              <p class="text-xs font-medium text-zinc-400 mt-1">
+                Predictive Turnover Drivers Across 10+ Operational Departments
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1">
+              Processed and transformed 1,470+ employee records using Python & SQL to identify root drivers of a 16.1% attrition rate. Uncovered sales department turnover at 39.8%, guiding strategic HR intervention.
+            </p>
+
+            <div class="p-3 rounded-2xl border text-xs font-medium flex items-center gap-2 bg-zinc-900/60 border-zinc-800 text-emerald-400">
+              <i data-lucide="sparkles" class="w-4 h-4 flex-shrink-0"></i>
+              <span>Key Result: Enabled targeted HR retention interventions across 10+ teams</span>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-zinc-800/80 space-y-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Python</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">SQL</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Power BI</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Statistical Analysis</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Streamlit</span>
+            </div>
+
+            <div class="flex items-center gap-3 pt-1">
+              <a href="https://ezurm3oghbvcb5emt2ztgk.streamlit.app/" target="_blank" rel="noreferrer" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-accent text-white font-semibold text-xs sm:text-sm hover:bg-accent/90 transition-all hover:scale-[1.02] active:scale-95 shadow-md shadow-accent/25">
+                <span>Launch Live App</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="https://github.com/ritish97/Enterprise-HR-Workforce-Attrition-Analytics-" target="_blank" rel="noreferrer" class="btn-secondary flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl font-semibold text-xs sm:text-sm transition-all hover:scale-[1.02] active:scale-95 border bg-zinc-900/90 hover:bg-zinc-800 text-zinc-200 border-zinc-700">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <span>View Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Instacart RFM -->
+        <div class="project-card card-box group relative flex flex-col justify-between overflow-hidden rounded-3xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 shadow-xl border bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/50 shadow-black/40" data-cat="analytics">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/10 text-accent border border-accent/20">
+                  <i data-lucide="database" class="w-5 h-5"></i>
+                </div>
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-accent">Data & BI Analytics</span>
+              </div>
+              <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Live App Deployed</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold tracking-tight group-hover:text-accent transition-colors leading-snug">
+                Instacart User Retention & RFM Analytics
+              </h3>
+              <p class="text-xs font-medium text-zinc-400 mt-1">
+                Cohort Funnels & Recency-Frequency-Monetary Segmentation
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1">
+              Cleansed and processed large transactional datasets with Pandas and SQL. Automated cohort retention pipelines in Python to monitor repeat ordering cycles and isolate drop-off churn.
+            </p>
+
+            <div class="p-3 rounded-2xl border text-xs font-medium flex items-center gap-2 bg-zinc-900/60 border-zinc-800 text-emerald-400">
+              <i data-lucide="sparkles" class="w-4 h-4 flex-shrink-0"></i>
+              <span>Key Result: Visualized churn patterns, boosting repeat purchases by 14%</span>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-zinc-800/80 space-y-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Python</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Pandas</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">SQL</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Power BI</span>
+              <span class="tech-pill px-2.5 py-1 rounded-lg text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800">Streamlit</span>
+            </div>
+
+            <div class="flex items-center gap-3 pt-1">
+              <a href="https://instacart-retention-analytics-ewdh5ytgldjbj9g3xvafz3.streamlit.app/" target="_blank" rel="noreferrer" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-accent text-white font-semibold text-xs sm:text-sm hover:bg-accent/90 transition-all hover:scale-[1.02] active:scale-95 shadow-md shadow-accent/25">
+                <span>Launch Live App</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+              <a href="https://github.com/ritish97/instacart-retention-analytics" target="_blank" rel="noreferrer" class="btn-secondary flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl font-semibold text-xs sm:text-sm transition-all hover:scale-[1.02] active:scale-95 border bg-zinc-900/90 hover:bg-zinc-800 text-zinc-200 border-zinc-700">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <span>View Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SKILLS BENTO -->
+    <section id="skills" class="w-full space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Technical Skills & Architecture</h2>
+        <span class="text-xs font-mono text-zinc-400">Full Capabilities</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Cat 1 -->
+        <div class="card-box rounded-3xl p-6 transition-all duration-300 border shadow-lg bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/40 shadow-black/40">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-zinc-900/50 border border-zinc-700/40 text-accent">
+              <i data-lucide="cpu" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-base leading-snug">Agentic AI & Machine Learning</h3>
+              <span class="text-[11px] text-zinc-400 font-medium">Core Engineering</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">RAG Architectures</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">LangChain</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">ChromaDB</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Hugging Face</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Sentence-Transformers</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">FastAPI</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Predictive Modeling</span>
+          </div>
+        </div>
+
+        <!-- Cat 2 -->
+        <div class="card-box rounded-3xl p-6 transition-all duration-300 border shadow-lg bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/40 shadow-black/40">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-zinc-900/50 border border-zinc-700/40 text-emerald-500">
+              <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-base leading-snug">Data Analytics & Business Intelligence</h3>
+              <span class="text-[11px] text-zinc-400 font-medium">Decision Support</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Power BI Dashboards</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Advanced Excel</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Complex SQL Queries</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">ETL Pipelines</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Exploratory Data Analysis</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Hypothesis Testing</span>
+          </div>
+        </div>
+
+        <!-- Cat 3 -->
+        <div class="card-box rounded-3xl p-6 transition-all duration-300 border shadow-lg bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/40 shadow-black/40">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-zinc-900/50 border border-zinc-700/40 text-indigo-500">
+              <i data-lucide="code-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-base leading-snug">Languages & Engineering Tooling</h3>
+              <span class="text-[11px] text-zinc-400 font-medium">Software Engineering</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Python (Pandas, NumPy)</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">SQL</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">C++</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Java</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Git & GitHub</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">REST APIs</span>
+          </div>
+        </div>
+
+        <!-- Cat 4 -->
+        <div class="card-box rounded-3xl p-6 transition-all duration-300 border shadow-lg bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/40 shadow-black/40">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-zinc-900/50 border border-zinc-700/40 text-amber-500">
+              <i data-lucide="network" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-base leading-snug">Analytical Methodologies & Core CS</h3>
+              <span class="text-[11px] text-zinc-400 font-medium">Foundations & Metrics</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">RFM Customer Segmentation</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Cohort Retention Funnels</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Economic Order Quantity (EOQ)</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Database Management (DBMS)</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">Computer Networks</span>
+            <span class="skill-tag px-3 py-1.5 rounded-xl text-xs font-medium bg-zinc-900/90 text-zinc-300 border border-zinc-800">OOPs & Operating Systems</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CERTIFICATIONS BENTO -->
+    <section id="certifications" class="w-full space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Flagship Certifications & Credentials</h2>
+          <p class="text-xs sm:text-sm text-zinc-400">Validated proficiency across IT infrastructure, data queries, security, and algorithms</p>
+        </div>
+
+        <button onclick="toggleCertsModal(true)" class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-accent/10 hover:bg-accent/20 text-accent border border-accent/20 transition-all hover:scale-105 active:scale-95 self-start sm:self-auto">
+          <span>View All 9 Certifications</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Cert 1 -->
+        <div class="card-box group relative flex flex-col justify-between rounded-3xl p-5 border transition-all duration-300 hover:-translate-y-1 shadow-lg bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/40">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400">Industry Standard</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-sm leading-snug group-hover:text-accent transition-colors">Google IT Support Professional</h3>
+              <p class="text-xs text-zinc-400 mt-1">Issued by <span class="font-medium text-zinc-300">Google / Coursera</span></p>
+            </div>
+          </div>
+          <div class="pt-4 flex items-center gap-1.5 text-xs text-emerald-500 font-medium">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+            <span>Verified Credential</span>
+          </div>
+        </div>
+
+        <!-- Cert 2 -->
+        <div class="card-box group relative flex flex-col justify-between rounded-3xl p-5 border transition-all duration-300 hover:-translate-y-1 shadow-lg bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/40">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-purple-500/10 text-purple-500">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400">Premier Academic</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-sm leading-snug group-hover:text-accent transition-colors">Blockchain and its Applications</h3>
+              <p class="text-xs text-zinc-400 mt-1">Issued by <span class="font-medium text-zinc-300">IIT Kharagpur</span></p>
+            </div>
+          </div>
+          <div class="pt-4 flex items-center gap-1.5 text-xs text-emerald-500 font-medium">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+            <span>Verified Credential</span>
+          </div>
+        </div>
+
+        <!-- Cert 3 -->
+        <div class="card-box group relative flex flex-col justify-between rounded-3xl p-5 border transition-all duration-300 hover:-translate-y-1 shadow-lg bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/40">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-500">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400">Database Mastery</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-sm leading-snug group-hover:text-accent transition-colors">SQL (Basic) Certified</h3>
+              <p class="text-xs text-zinc-400 mt-1">Issued by <span class="font-medium text-zinc-300">HackerRank</span></p>
+            </div>
+          </div>
+          <div class="pt-4 flex items-center gap-1.5 text-xs text-emerald-500 font-medium">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+            <span>Verified Credential</span>
+          </div>
+        </div>
+
+        <!-- Cert 4 -->
+        <div class="card-box group relative flex flex-col justify-between rounded-3xl p-5 border transition-all duration-300 hover:-translate-y-1 shadow-lg bg-obsidian-card border-obsidian-border text-zinc-100 hover:border-accent/40">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400">VIT Specialization</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-sm leading-snug group-hover:text-accent transition-colors">Cyber Security Analyst</h3>
+              <p class="text-xs text-zinc-400 mt-1">Domain Specialization in <span class="font-medium text-zinc-300">Digital Forensics</span></p>
+            </div>
+          </div>
+          <div class="pt-4 flex items-center gap-1.5 text-xs text-emerald-500 font-medium">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+            <span>Verified Credential</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. EXPERIENCE & EDUCATION BENTO -->
+    <section id="experience" class="w-full space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Experience & Education</h2>
+        <span class="text-xs font-mono text-zinc-400">Career Trajectory</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- Work Experience -->
+        <div class="card-box rounded-3xl p-6 sm:p-7 border transition-all duration-300 shadow-xl bg-obsidian-card border-obsidian-border text-zinc-100 shadow-black/40">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/10 text-accent">
+              <i data-lucide="briefcase" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg leading-tight">Work Experience</h3>
+              <p class="text-xs text-zinc-400">Industry & Analytics Practice</p>
+            </div>
+          </div>
+
+          <div class="inner-card p-5 rounded-2xl border bg-zinc-900/60 border-zinc-800">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+              <div>
+                <h4 class="font-bold text-base text-accent">Business Analyst (Part-time)</h4>
+                <div class="flex items-center gap-2 text-xs text-zinc-400 font-medium">
+                  <i data-lucide="building-2" class="w-3.5 h-3.5"></i>
+                  <span>Finlatics (Remote)</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 text-xs text-zinc-400 font-mono">
+                <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                <span>Aug 2025 – Oct 2025</span>
+              </div>
+            </div>
+
+            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-2">
+              Analyzed manufacturing and consumer datasets across cross-functional projects. Applied predictive maintenance algorithms and consumer behavioral analysis techniques to drive actionable decision support.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 pt-3">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-zinc-800 text-zinc-300">Predictive Maintenance</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-zinc-800 text-zinc-300">Behavioral Analysis</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-zinc-800 text-zinc-300">Data Modeling</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-zinc-800 text-zinc-300">BI Interventions</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="card-box rounded-3xl p-6 sm:p-7 border transition-all duration-300 shadow-xl bg-obsidian-card border-obsidian-border text-zinc-100 shadow-black/40">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-purple-500/10 text-purple-500">
+              <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg leading-tight">Education Background</h3>
+              <p class="text-xs text-zinc-400">Formal Engineering & Foundations</p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="inner-card p-4 rounded-2xl border bg-zinc-900/60 border-zinc-800">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h4 class="font-bold text-sm text-zinc-100">Vellore Institute of Technology (VIT)</h4>
+                  <p class="text-xs text-zinc-400">B.Tech in Cyber Security and Digital Forensics</p>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-accent/15 text-accent border border-accent/20">
+                  8.26 CGPA
+                </span>
+              </div>
+              <p class="text-[11px] text-zinc-400 font-mono mt-2">Sep 2023 – July 2027 • Full-time</p>
+            </div>
+
+            <div class="inner-card p-4 rounded-2xl border bg-zinc-900/40 border-zinc-800/80">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h5 class="font-semibold text-xs text-zinc-200">Kendriya Vidyalaya No. 1 J.R.C (CBSE)</h5>
+                  <p class="text-[11px] text-zinc-400">Class 12th: <span class="font-semibold text-zinc-300">79.2%</span> | Class 10th: <span class="font-semibold text-zinc-300">96.4%</span></p>
+                </div>
+                <span class="text-[11px] font-mono text-zinc-400">2021 – 2023</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CONTACT BENTO & FOOTER -->
+    <footer id="contact" class="w-full space-y-6 pt-6">
+      <div class="card-box relative overflow-hidden rounded-3xl p-8 sm:p-10 border transition-all duration-300 shadow-2xl bg-obsidian-card border-obsidian-border text-zinc-100 shadow-black/40">
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div class="space-y-3 text-center md:text-left">
+            <span class="text-xs font-semibold uppercase tracking-wider text-accent">Get in Touch</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Ready to create data-driven AI systems?</h2>
+            <p class="text-sm text-zinc-300 max-w-xl">
+              Open to full-time engineering and data analyst opportunities, internships, and high-impact AI/BI projects. Feel free to reach out directly.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs font-mono pt-2 text-zinc-400">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="phone" class="w-3.5 h-3.5 text-accent"></i>
+                <span>+91 771-738-8449</span>
+              </span>
+              <span>•</span>
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="mail" class="w-3.5 h-3.5 text-accent"></i>
+                <span>yadavretishkumar05@gmail.com</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center md:justify-end gap-3 w-full md:w-auto">
+            <button onclick="copyEmailToClipboard()" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-accent text-white font-semibold text-xs sm:text-sm hover:bg-accent/90 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-accent/25">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span>Copy Email</span>
+            </button>
+
+            <a href="https://linkedin.com/in/ritish-yadav24" target="_blank" rel="noreferrer" class="btn-secondary flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl font-semibold text-xs sm:text-sm transition-all hover:scale-105 active:scale-95 border bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border-zinc-700 shadow-sm">
+              <svg class="w-4 h-4 fill-[#0A66C2]" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74V9.87H5.06v8.63h2.8z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+
+            <a href="https://github.com/ritish97" target="_blank" rel="noreferrer" class="btn-secondary flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl font-semibold text-xs sm:text-sm transition-all hover:scale-105 active:scale-95 border bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border-zinc-700 shadow-sm">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>GitHub</span>
+            </a>
+
+            <button onclick="toggleResumeModal(true)" class="btn-secondary flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl font-semibold text-xs sm:text-sm transition-all hover:scale-105 active:scale-95 border bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border-zinc-700">
+              <i data-lucide="file-text" class="w-4 h-4 text-accent"></i>
+              <span>Download Resume</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 pb-10 px-2 gap-3">
+        <p>© 2026 Ritish Kumar Yadav. Built with Apple Bento Grid Design System.</p>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/ritish97" target="_blank" rel="noreferrer" class="hover:text-accent transition-colors">GitHub</a>
+          <a href="https://linkedin.com/in/ritish-yadav24" target="_blank" rel="noreferrer" class="hover:text-accent transition-colors">LinkedIn</a>
+          <a href="#hero" class="hover:text-accent transition-colors font-mono">Back to Top ↑</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- RESUME QUICK-VIEWER MODAL -->
+  <div id="resume-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-md">
+    <div class="card-box relative flex flex-col w-full max-w-4xl h-[88vh] rounded-3xl overflow-hidden shadow-2xl transition-all border bg-obsidian-card border-obsidian-border text-zinc-100">
+      <!-- Modal Header -->
+      <div class="modal-header flex items-center justify-between px-6 py-4 border-b border-obsidian-border bg-obsidian-card/90">
+        <div class="flex items-center gap-3">
+          <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-accent/15 text-accent">
+            <i data-lucide="file-text" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold text-sm sm:text-base leading-tight">Ritish Kumar Yadav — Resume</h3>
+            <p class="text-xs text-zinc-400">Data Analyst & Agentic AI Engineer</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="public/resume.pdf" download="Ritish_Kumar_Yadav_Resume.pdf" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-accent text-white hover:bg-accent/90 transition-all hover:scale-105 shadow-sm">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span>Download PDF</span>
+          </a>
+          <button onclick="toggleResumeModal(false)" class="p-2 rounded-full transition-colors hover:bg-zinc-800 text-zinc-400">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Iframe -->
+      <div class="relative flex-1 w-full bg-zinc-900/10">
+        <iframe src="public/resume.pdf#toolbar=1" class="w-full h-full border-none" title="Ritish Kumar Yadav Resume"></iframe>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer flex items-center justify-between px-6 py-3 text-xs border-t border-obsidian-border bg-obsidian-card text-zinc-400">
+        <span>B.Tech in Cyber Security and Digital Forensics, Vellore Institute of Technology</span>
+        <a href="https://linkedin.com/in/ritish-yadav24" target="_blank" rel="noreferrer" class="flex items-center gap-1 text-accent hover:underline font-medium">
+          <span>LinkedIn Profile</span>
+          <i data-lucide="external-link" class="w-3 h-3"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS MODAL (ALL 9) -->
+  <div id="certs-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-md">
+    <div class="card-box relative flex flex-col w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl border transition-all bg-obsidian-card border-obsidian-border text-zinc-100">
+      <!-- Header -->
+      <div class="modal-header flex items-center justify-between px-6 py-5 border-b border-obsidian-border bg-obsidian-card/90">
+        <div class="flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/15 text-accent">
+            <i data-lucide="award" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-base sm:text-lg">Verified Credentials & Certifications</h3>
+            <p class="text-xs text-zinc-400">All 9 completed technical certifications across AI, Data & Security</p>
+          </div>
+        </div>
+
+        <button onclick="toggleCertsModal(false)" class="p-2 rounded-full transition-colors hover:bg-zinc-800 text-zinc-400">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- All 9 Certifications List -->
+      <div class="flex-1 overflow-y-auto p-6 space-y-3">
+        <!-- 1 -->
+        <div class="inner-card flex items-start justify-between p-4 rounded-2xl border bg-obsidian-bg/80 border-obsidian-border">
+          <div class="flex items-start gap-3.5">
+            <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-sm leading-tight text-zinc-100">Google IT Support Professional Certificate</h4>
+              <p class="text-xs text-zinc-400 mt-1">Issued by <span class="font-medium text-zinc-300">Google / Coursera</span></p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-purple-500/10 text-purple-400 border border-purple-500/20">Cyber & Cloud</span>
+        </div>
+
+        <!-- 2 -->
+        <div class="inner-card flex items-start justify-between p-4 rounded-2xl border bg-obsidian-bg/80 border-obsidian-border">
+          <div class="flex items-start gap-3.5">
+            <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-sm leading-tight text-zinc-100">Blockchain and its Applications</h4>
+              <p class="text-xs text-zinc-400 mt-1">Issued by <span class="font-medium text-zinc-300">Indian Institute of Technology (IIT), Kharagpur</span></p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-purple-500/10 text-purple-400 border border-purple-500/20">Cyber & Cloud</span>
+        </div>
+
+        <!-- 3 -->
+        <div class="inner-card flex items-start justify-between p-4 rounded-2xl border bg-obsidian-bg/80 border-obsidian-border">
+          <div class="flex items-start gap-3.5">
+            <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-sm leading-tight text-zinc-100">SQL (Basic) Certificate</h4>
+              <p class="text-xs text-zinc-400 mt-1">Issued by <span class="font-medium text-zinc-300">HackerRank</span></p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-blue-500/10 text-blue-400 border border-blue-500/20">Core Data</span>
+        </div>
+
+        <!-- 4 -->
+        <div class="inner-card flex items-start justify-between p-4 rounded-2xl border bg-obsidian-bg/80 border-obsidian-border">
+          <div class="flex items-start gap-3.5">
+            <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-sm leading-tight text-zinc-100">Cyber Security Analyst Certificate</h4>
+              <p class="text-xs text-zinc-400 mt-1">Issued by <span class="font-medium text-zinc-300">Industry Accredited / VIT</span></p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-purple-500/10 text-purple-400 border border-purple-500/20">Cyber Security</span>
+        </div>
+
+        <!-- 5 -->
+        <div class="inner-card flex items-start justify-between p-4 rounded-2xl border bg-obsidian-bg/80 border-obsidian-border">
+          <div class="flex items-start gap-3.5">
+            <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-sm leading-tight text-zinc-100">Introduction to MS Excel</h4>
+              <p class="text-xs text-zinc-400 mt-1">Issued by <span class="font-medium text-zinc-300">Microsoft SkillUp</span></p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-blue-500/10 text-blue-400 border border-blue-500/20">Core Data</span>
+        </div>
+
+        <!-- 6 -->
+        <div class="inner-card flex items-start justify-between p-4 rounded-2xl border bg-obsidian-bg/80 border-obsidian-border">
+          <div class="flex items-start gap-3.5">
+            <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-sm leading-tight text-zinc-100">The Bits and Bytes of Computer Networking</h4>
+              <p class="text-xs text-zinc-400 mt-1">Issued by <span class="font-medium text-zinc-300">Google / Coursera</span></p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-purple-500/10 text-purple-400 border border-purple-500/20">Networking</span>
+        </div>
+
+        <!-- 7 -->
+        <div class="inner-card flex items-start justify-between p-4 rounded-2xl border bg-obsidian-bg/80 border-obsidian-border">
+          <div class="flex items-start gap-3.5">
+            <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-sm leading-tight text-zinc-100">Fundamentals of AI</h4>
+              <p class="text-xs text-zinc-400 mt-1">Issued by <span class="font-medium text-zinc-300">VITyarthi</span></p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">AI & ML</span>
+        </div>
+
+        <!-- 8 -->
+        <div class="inner-card flex items-start justify-between p-4 rounded-2xl border bg-obsidian-bg/80 border-obsidian-border">
+          <div class="flex items-start gap-3.5">
+            <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-sm leading-tight text-zinc-100">Python Essentials</h4>
+              <p class="text-xs text-zinc-400 mt-1">Issued by <span class="font-medium text-zinc-300">VITyarthi</span></p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Programming</span>
+        </div>
+
+        <!-- 9 -->
+        <div class="inner-card flex items-start justify-between p-4 rounded-2xl border bg-obsidian-bg/80 border-obsidian-border">
+          <div class="flex items-start gap-3.5">
+            <div class="mt-0.5 flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold text-sm leading-tight text-zinc-100">Programming in Java</h4>
+              <p class="text-xs text-zinc-400 mt-1">Issued by <span class="font-medium text-zinc-300">VITyarthi</span></p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Programming</span>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer flex items-center justify-between px-6 py-3 border-t border-obsidian-border bg-obsidian-card text-zinc-400 text-xs">
+        <span>Total: 9 Verified Credentials</span>
+        <span class="font-mono text-[11px]">Academic & Professional Track</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING COPY EMAIL TOAST -->
+  <div id="email-toast" class="fixed bottom-6 right-6 z-50 hidden items-center gap-3 rounded-2xl bg-zinc-900/95 border border-zinc-700/80 px-4 py-3 text-white shadow-2xl backdrop-blur-md">
+    <i data-lucide="check-circle-2" class="w-5 h-5 text-accent flex-shrink-0"></i>
+    <span class="text-xs sm:text-sm font-medium">yadavretishkumar05@gmail.com copied to clipboard!</span>
+    <button onclick="document.getElementById('email-toast').classList.add('hidden')" class="ml-2 text-zinc-400 hover:text-white text-xs font-mono">✕</button>
+  </div>
+
+  <!-- SCRIPT FOR INTERACTIVITY & THEME -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    let isDark = true;
+
+    // --- 3D STARFIELD GALAXY SIMULATION (NO PLANETS, SMALL STARS MOVING IN 3D DEPTH) ---
+    (function init3DStarfield() {
+      const canvas = document.getElementById('starfield-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+
+      const numStars = 650;
+      const maxDepth = 1500;
+      const speed = 0.85;
+
+      const starColorsDark = [
+        'rgba(255, 255, 255, ',
+        'rgba(224, 231, 255, ', // Ice white
+        'rgba(147, 197, 253, ', // Electric blue tint
+        'rgba(199, 210, 254, ', // Soft indigo tint
+      ];
+
+      const starColorsLight = [
+        'rgba(100, 116, 139, ',
+        'rgba(59, 130, 246, ',
+        'rgba(99, 102, 241, ',
+      ];
+
+      const stars = [];
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: (Math.random() - 0.5) * width * 2.2,
+          y: (Math.random() - 0.5) * height * 2.2,
+          z: Math.random() * maxDepth,
+          pz: maxDepth,
+          size: Math.random() * 1.5 + 0.5,
+          colorIdx: Math.floor(Math.random() * starColorsDark.length),
+        });
+      }
+
+      let mouseX = 0;
+      let mouseY = 0;
+      let targetMouseX = 0;
+      let targetMouseY = 0;
+
+      window.addEventListener('mousemove', (e) => {
+        targetMouseX = (e.clientX - width / 2) * 0.08;
+        targetMouseY = (e.clientY - height / 2) * 0.08;
+      });
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      function renderStars() {
+        mouseX += (targetMouseX - mouseX) * 0.05;
+        mouseY += (targetMouseY - mouseY) * 0.05;
+
+        ctx.clearRect(0, 0, width, height);
+
+        const cx = width / 2 + mouseX;
+        const cy = height / 2 + mouseY;
+        const colors = isDark ? starColorsDark : starColorsLight;
+
+        for (let i = 0; i < stars.length; i++) {
+          const star = stars[i];
+
+          star.pz = star.z;
+          star.z -= speed;
+
+          if (star.z <= 0) {
+            star.z = maxDepth;
+            star.pz = maxDepth;
+            star.x = (Math.random() - 0.5) * width * 2.2;
+            star.y = (Math.random() - 0.5) * height * 2.2;
+          }
+
+          const fov = 350;
+          const k = fov / star.z;
+          const px = star.x * k + cx;
+          const py = star.y * k + cy;
+
+          const pk = fov / star.pz;
+          const prevX = star.x * pk + cx;
+          const prevY = star.y * pk + cy;
+
+          if (px < -50 || px > width + 50 || py < -50 || py > height + 50) {
+            continue;
+          }
+
+          const depthRatio = 1 - star.z / maxDepth;
+          const alpha = Math.min(Math.max(depthRatio * (isDark ? 0.95 : 0.45), 0.08), 1);
+          const radius = Math.max(star.size * depthRatio * 2.2, 0.4);
+
+          const colorBase = colors[star.colorIdx % colors.length];
+
+          // 3D Motion Streak
+          ctx.beginPath();
+          ctx.moveTo(prevX, prevY);
+          ctx.lineTo(px, py);
+          ctx.strokeStyle = colorBase + (alpha * 0.6) + ')';
+          ctx.lineWidth = radius * 0.8;
+          ctx.stroke();
+
+          // Star Core
+          ctx.beginPath();
+          ctx.arc(px, py, radius, 0, Math.PI * 2);
+          ctx.fillStyle = colorBase + alpha + ')';
+          ctx.fill();
+
+          // Subtle electric blue glow for closest foreground stars
+          if (depthRatio > 0.8 && isDark) {
+            ctx.beginPath();
+            ctx.arc(px, py, radius * 2.8, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(0, 112, 243, ' + (alpha * 0.25) + ')';
+            ctx.fill();
+          }
+        }
+
+        requestAnimationFrame(renderStars);
+      }
+
+      renderStars();
+    })();
+
+    // Theme Toggle Functionality
+    function toggleTheme() {
+      isDark = !isDark;
+      const html = document.documentElement;
+      const nav = document.getElementById('navbar-container');
+      const themeIcon = document.getElementById('theme-icon');
+      const themeBtn = document.getElementById('theme-toggle-btn');
+      const cards = document.querySelectorAll('.card-box');
+      const innerCards = document.querySelectorAll('.inner-card');
+      const metaPills = document.querySelectorAll('.meta-pill');
+      const btnSecondaries = document.querySelectorAll('.btn-secondary');
+      const bioText = document.querySelector('.bio-text');
+      const starCanvas = document.getElementById('starfield-canvas');
+
+      if (isDark) {
+        if (starCanvas) starCanvas.style.opacity = '0.95';
+        html.classList.add('dark');
+        document.body.className = "bg-obsidian-bg text-zinc-100 antialiased selection:bg-accent selection:text-white transition-colors duration-300";
+        nav.className = "flex items-center justify-between rounded-full px-5 py-3 transition-all duration-300 shadow-lg bg-obsidian-card/80 border border-obsidian-border/80 backdrop-blur-xl text-zinc-200 shadow-black/40";
+        themeBtn.className = "p-2 rounded-full transition-all hover:scale-110 active:scale-90 bg-zinc-800 text-yellow-400";
+        themeIcon.setAttribute('data-lucide', 'sun');
+
+        cards.forEach(card => {
+          card.classList.remove('bg-white', 'border-zinc-200/90', 'text-zinc-900', 'shadow-zinc-200/40');
+          card.classList.add('bg-obsidian-card', 'border-obsidian-border', 'text-zinc-100', 'shadow-black/40');
+        });
+
+        innerCards.forEach(c => {
+          c.classList.remove('bg-zinc-50', 'border-zinc-200');
+          c.classList.add('bg-zinc-900/60', 'border-zinc-800');
+        });
+
+        btnSecondaries.forEach(b => {
+          b.classList.remove('bg-zinc-100', 'text-zinc-800', 'border-zinc-300', 'hover:bg-zinc-200');
+          b.classList.add('bg-zinc-900/80', 'text-zinc-200', 'border-zinc-700', 'hover:bg-zinc-800');
+        });
+
+        if (bioText) {
+          bioText.classList.remove('text-zinc-600');
+          bioText.classList.add('text-zinc-300');
+        }
+      } else {
+        if (starCanvas) starCanvas.style.opacity = '0.45';
+        html.classList.remove('dark');
+        document.body.className = "bg-cream-bg text-zinc-900 antialiased selection:bg-accent selection:text-white transition-colors duration-300";
+        nav.className = "flex items-center justify-between rounded-full px-5 py-3 transition-all duration-300 shadow-lg bg-white/85 border border-zinc-200/90 backdrop-blur-xl text-zinc-800 shadow-zinc-200/50";
+        themeBtn.className = "p-2 rounded-full transition-all hover:scale-110 active:scale-90 bg-zinc-100 text-zinc-700";
+        themeIcon.setAttribute('data-lucide', 'moon');
+
+        cards.forEach(card => {
+          card.classList.remove('bg-obsidian-card', 'border-obsidian-border', 'text-zinc-100', 'shadow-black/40');
+          card.classList.add('bg-white', 'border-zinc-200/90', 'text-zinc-900', 'shadow-zinc-200/40');
+        });
+
+        innerCards.forEach(c => {
+          c.classList.remove('bg-zinc-900/60', 'border-zinc-800', 'bg-obsidian-bg/80', 'border-obsidian-border');
+          c.classList.add('bg-zinc-50', 'border-zinc-200');
+        });
+
+        btnSecondaries.forEach(b => {
+          b.classList.remove('bg-zinc-900/80', 'text-zinc-200', 'border-zinc-700', 'hover:bg-zinc-800');
+          b.classList.add('bg-zinc-100', 'text-zinc-800', 'border-zinc-300', 'hover:bg-zinc-200');
+        });
+
+        if (bioText) {
+          bioText.classList.remove('text-zinc-300');
+          bioText.classList.add('text-zinc-600');
+        }
+      }
+
+      lucide.createIcons();
+    }
+
+    // Copy Email Toast
+    function copyEmailToClipboard() {
+      navigator.clipboard.writeText('yadavretishkumar05@gmail.com');
+      const toast = document.getElementById('email-toast');
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+      setTimeout(() => {
+        toast.classList.remove('flex');
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+
+    // Modals
+    function toggleResumeModal(show) {
+      const modal = document.getElementById('resume-modal');
+      if (show) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      } else {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    function toggleCertsModal(show) {
+      const modal = document.getElementById('certs-modal');
+      if (show) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      } else {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // Projects Category Filtering
+    function filterProjects(cat) {
+      const cards = document.querySelectorAll('.project-card');
+      const tabs = document.querySelectorAll('.project-tab');
+
+      tabs.forEach(t => {
+        t.className = "project-tab px-3 py-1.5 rounded-full transition-all text-zinc-400 hover:text-white";
+      });
+
+      document.getElementById('tab-' + cat).className = "project-tab px-3 py-1.5 rounded-full transition-all bg-accent text-white font-semibold";
+
+      cards.forEach(card => {
+        if (cat === 'all') {
+          card.style.display = 'flex';
+        } else if (card.getAttribute('data-cat') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Close Modals on ESC
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        toggleResumeModal(false);
+        toggleCertsModal(false);
+      }
+    });
+  </script>
+</body>
+</html>
