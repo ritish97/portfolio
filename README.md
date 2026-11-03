@@ -1,20 +1,6 @@
-# Ritish Kumar Yadav — Bento Grid Portfolio
+# Ritish Kumar Yadav —Portfolio
 
-> **Apple-Style Modern Minimalist Portfolio** for **Data Analyst & Agentic AI Engineer**.  
-> Features sleek modular cards, dual dark/light modes, live Streamlit demo links, interactive metrics, copy-to-clipboard email toast, and full PDF resume modal.
-
----
-
-## ⚡ Instant Live Preview (No Setup Required!)
-Since you are on Windows, you can open and test your portfolio **immediately**:
-1. Open File Explorer to:
-   `C:\Users\Ritish\.gemini\antigravity\scratch\portfolio-ritish\`
-2. Double-click **`index.html`**
-3. It opens directly in your browser (Chrome/Edge/Brave) with full interactive dark/light toggle, live Streamlit buttons, copy-email toast, and modals!
-
----
-
-## 🚀 Next.js 14 Production Code (Vercel Ready)
+## 🚀 Production Code
 
 This repository is already structured as a complete, modern **Next.js 14 (App Router) + Tailwind CSS + Framer Motion** application.
 
@@ -46,36 +32,3 @@ portfolio-ritish/
 ├── tsconfig.json          # TypeScript configuration
 └── next.config.mjs        # Next.js production build configuration
 ```
-
----
-
-## 🌐 How to Deploy to Vercel (1-Click)
-
-1. **Create a GitHub Repository**:
-   - Go to [github.com/new](https://github.com/new)
-   - Create a repository named `portfolio` or `ritish-portfolio`
-2. **Push this folder to GitHub**:
-   Open PowerShell in this directory:
-   ```powershell
-   git init
-   git add .
-   git commit -m "feat: initial Apple Bento Grid portfolio"
-   git branch -M main
-   git remote add origin https://github.com/ritish97/portfolio.git
-   git push -u origin main
-   ```
-3. **Deploy on Vercel**:
-   - Go to [vercel.com](https://vercel.com)
-   - Click **"Add New" -> "Project"**
-   - Select your `portfolio` repository
-   - Click **"Deploy"** (Vercel automatically builds and provides a free custom URL like `ritish-portfolio.vercel.app`)
-
----
-
-## 💻 Running Locally with Node.js
-Whenever you have Node.js installed:
-```bash
-npm install
-npm run dev
-```
-Visit `http://localhost:3000` to see live hot-reloading updates!
